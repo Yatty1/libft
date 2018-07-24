@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 14:24:45 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/16 14:27:28 by syamada          ###   ########.fr       */
+/*   Updated: 2018/07/23 17:35:46 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ char		**ft_strsplit(char const *s, char c)
 		{
 			if (!(a_str[j] = ft_strnew(count_char((char *)s, c, i))))
 				return (NULL);
-			a_str[j] = ft_strnew(count_char((char *)s, c, i));
 			assign_str(a_str[j], (char *)s, c, &i);
 			j++;
 		}

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strinit.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 19:21:07 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/13 20:17:45 by syamada          ###   ########.fr       */
+/*   Created: 2018/07/18 12:34:17 by syamada           #+#    #+#             */
+/*   Updated: 2018/07/23 17:36:17 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 42
+# define FDN 4864
+# include "libft.h"
+# include <stdlib.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <unistd.h>
 
-char	*ft_strinit(char *str)
-{
-	char	*s;
-	int		i;
+int		get_next_line(const int fd, char **line);
 
-	i = 0;
-	if (!(s = ft_strnew(ft_strlen(str))))
-		return (NULL);
-	while (*str)
-		s[i++] = *str++;
-	s[i] = '\0';
-	return (s);
-}
+#endif
