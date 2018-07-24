@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 13:15:21 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/23 22:02:07 by syamada          ###   ########.fr       */
+/*   Created: 2018/07/23 21:42:34 by syamada           #+#    #+#             */
+/*   Updated: 2018/07/23 22:04:52 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strndup(char *str, int n)
 {
-	char			*s_s;
-	unsigned int	i;
-	int				j;
+	int		i;
+	char	*dup;
 
-	if (s == NULL)
+	i = 0;
+	if (!(dup = (char *)malloc(sizeof(str) * (n + 1))))
 		return (NULL);
-	if (!(s_s = ft_strnew(len)))
-		return (NULL);
-	i = start;
-	j = 0;
-	while (s[i] && len--)
-		s_s[j++] = s[i++];
-	s_s[j] = '\0';
-	return (s_s);
+	while (i < n)
+	{
+		dup[i] = str[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }
