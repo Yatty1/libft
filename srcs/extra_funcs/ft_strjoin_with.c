@@ -22,9 +22,9 @@ char	*ft_strjoin_with(const char *s1, const char *s2, char c)
 	len = ft_strlen(s1) + ft_strlen(s2) + 2;
 	if (!(str = (char *)malloc(sizeof(char) * len)))
 		return (NULL);
-	str[i++] = c;
 	while (*s1)
 		str[i++] = *s1++;
+	str[i++] = c;
 	while (*s2)
 		str[i++] = *s2++;
 	str[i] = '\0';
