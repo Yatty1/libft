@@ -6,7 +6,7 @@
 #    By: syamada <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 13:43:20 by syamada           #+#    #+#              #
-#    Updated: 2018/07/23 19:09:02 by syamada          ###   ########.fr        #
+#    Updated: 2018/07/23 19:28:44 by syamada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,14 +50,14 @@ SRCS	:= $(addprefix $(SRCDIR)/, $(ALL))
 OBJECTS	:= $(addprefix $(OBJDIR)/, $(patsubst %.c, %.o, $(ALL)))
 
 #colors
-COM_COLOR   := \033[0;34m
-CR_COLOR   := \033[1;34m
-SRC_COLOR   := \033[0;33m
-OK_COLOR    := \033[0;32m
-LIB_COLOR    := \033[1;32m
-ERROR_COLOR := \033[0;31m
-WARN_COLOR  := \033[0;33m
-NO_COLOR    := \033[m
+COM_COLOR	:= \033[0;34m
+CR_COLOR	:= \033[1;34m
+SRC_COLOR	:= \033[0;33m
+OK_COLOR	:= \033[0;32m
+LIB_COLOR	:= \033[1;32m
+ERROR_COLOR	:= \033[0;31m
+WARN_COLOR	:= \033[0;33m
+NO_COLOR	:= \033[m
 
 # prompt
 OK_STR		:= "[OK]"
