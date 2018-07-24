@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 17:21:18 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/23 19:18:12 by syamada          ###   ########.fr       */
+/*   Updated: 2018/07/23 21:24:39 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*c_s1;
 	unsigned char	*c_s2;
+	size_t			i;
 
+	i = 0;
 	if (n == 0)
 		return (0);
 	c_s1 = (unsigned char *)s1;
