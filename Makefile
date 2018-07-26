@@ -6,7 +6,7 @@
 #    By: syamada <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 13:43:20 by syamada           #+#    #+#              #
-#    Updated: 2018/07/23 22:05:37 by syamada          ###   ########.fr        #
+#    Updated: 2018/07/25 17:40:42 by syamada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ LISTS	:= ft_samplelist.c ft_printlist.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c f
 EXTRAS	:= ft_strinit.c	ft_strrev.c ft_wordcount.c ft_strjoin_with.c get_next_line.c ft_strndup.c
 
 LIBC_D	:= $(addprefix $(LIBCDIR)/, $(LIBCS))
-ADD_D	:= $(addprefix $(ADDDIR)/, $(ADD))
+ADD_D	:= $(addprefix $(ADDDIR)/, $(ADDS))
 LIST_D	:= $(addprefix $(LISTDIR)/, $(LISTS))
 EXTRA_D	:= $(addprefix $(EXTRADIR)/, $(EXTRAS))
 
