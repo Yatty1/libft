@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_charstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 18:17:03 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/27 14:42:06 by syamada          ###   ########.fr       */
+/*   Created: 2018/07/26 18:54:00 by syamada           #+#    #+#             */
+/*   Updated: 2018/07/27 18:54:12 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_charstr(char c)
 {
-	size_t			i;
-	unsigned char	*cb;
+	char	*str;
 
-	i = 0;
-	cb = (unsigned char *)b;
-	while (i < len)
-		cb[i++] = (unsigned char)c;
-	return (cb);
+	str = ft_strnew(2);
+	*str++ = c;
+	*str = '\0';
+	return (str);
 }
