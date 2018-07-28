@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 13:46:49 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/26 21:21:48 by syamada          ###   ########.fr       */
+/*   Updated: 2018/07/27 20:02:47 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ int					ft_wordcount(char *s, char d);
 char				*ft_strjoin_with(const char *s1, const char *s2, char c);
 char				*ft_strndup(char *str, int i, int n);
 char				*ft_charstr(char c);
+char				*ft_strappend(char *str, char c);
+char				*ft_strprepend(char *str, char c);
 
 #endif
