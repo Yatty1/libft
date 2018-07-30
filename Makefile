@@ -6,7 +6,7 @@
 #    By: syamada <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 13:43:20 by syamada           #+#    #+#              #
-#    Updated: 2018/07/27 20:02:22 by syamada          ###   ########.fr        #
+#    Updated: 2018/07/30 10:26:16 by syamada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ LIBCDIR		:= libc_funcs
 ADDDIR		:= add_funcs
 LISTDIR		:= list_funcs
 EXTRADIR	:= extra_funcs
+NTOADIR		:= ntoa_funcs
 
 LIBCS	:= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlen.c \
 			ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c ft_strrchr.c \
@@ -37,14 +38,17 @@ LISTS	:= ft_samplelist.c ft_printlist.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c f
 			ft_lstiter.c ft_lstmap.c ft_lstpush.c
 
 EXTRAS	:= ft_strinit.c	ft_strrev.c ft_wordcount.c ft_strjoin_with.c get_next_line.c ft_strndup.c \
-	ft_charstr.c ft_strprepend.c ft_strappend.c
+	ft_charstr.c ft_strprepend.c ft_strappend.c  \
+
+NTOAS	:= ft_itoa_base.c ft_ltoa_base.c ft_lltoa_base.c ft_uitoa_base.c ft_ultoa_base.c ft_ulltoa_base.c \
 
 LIBC_D	:= $(addprefix $(LIBCDIR)/, $(LIBCS))
 ADD_D	:= $(addprefix $(ADDDIR)/, $(ADDS))
 LIST_D	:= $(addprefix $(LISTDIR)/, $(LISTS))
 EXTRA_D	:= $(addprefix $(EXTRADIR)/, $(EXTRAS))
+NTOA_D	:= $(addprefix $(NTOADIR)/, $(NTOAS))
 
-ALL		:= $(LIBC_D) $(ADD_D) $(LIST_D) $(EXTRA_D)
+ALL		:= $(LIBC_D) $(ADD_D) $(LIST_D) $(EXTRA_D) $(NTOA_D)
 
 HEADERS	:= $(wildcard $(INCDIR)/*.h)
 SRCS	:= $(addprefix $(SRCDIR)/, $(ALL))
@@ -86,6 +90,7 @@ $(OBJDIR):
 	@mkdir $(addprefix $(OBJDIR)/, $(ADDDIR))
 	@mkdir $(addprefix $(OBJDIR)/, $(LISTDIR))
 	@mkdir $(addprefix $(OBJDIR)/, $(EXTRADIR))
+	@mkdir $(addprefix $(OBJDIR)/, $(NTOADIR))
 
 .PHONY: clean
 clean:
@@ -101,3 +106,7 @@ fclean: clean
 
 .PHONY: re
 re: fclean all
+
+.PHONY: norm
+norm:
+	@norminette $(SRCS) $(HEADERS)

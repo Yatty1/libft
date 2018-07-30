@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 13:46:49 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/27 20:02:47 by syamada          ###   ########.fr       */
+/*   Updated: 2018/07/30 10:25:29 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,15 @@ char				*ft_strndup(char *str, int i, int n);
 char				*ft_charstr(char c);
 char				*ft_strappend(char *str, char c);
 char				*ft_strprepend(char *str, char c);
+
+char				*ft_itoa_base(int num, int base, int is_cap);
+char				*ft_ltoa_base(long num, int base, int is_cap);
+char				*ft_lltoa_base(long long num, int base, int is_cap);
+char				*ft_uitoa_base(unsigned int num, unsigned int base,
+									int is_cap);
+char				*ft_ultoa_base(unsigned long num, unsigned int base,
+									int is_cap);
+char				*ft_ulltoa_base(unsigned long long num,
+									unsigned int base, int is_cap);
 
 #endif

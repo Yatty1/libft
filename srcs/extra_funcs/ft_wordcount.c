@@ -6,15 +6,15 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 16:16:25 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/23 19:22:03 by syamada          ###   ########.fr       */
+/*   Updated: 2018/07/30 10:22:48 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
- * count number of words in a string with delimiter.
- */
+** count number of words in a string with delimiter.
+*/
 
 int		word_count(char *s, char d)
 {
