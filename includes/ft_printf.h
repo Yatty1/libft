@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:36:39 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/01 23:24:16 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/02 12:59:40 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char			*format_o(va_list ap, char *conv);
 char			*format_u(va_list ap, char *conv);
 char			*format_x(va_list ap, char *conv);
 char			*format_c(va_list ap, char *conv);
+char			*format_percent(va_list ap, char *conv);
 int				is_conversion(char c);
 int				is_stop(char c);
 int				is_tflag(char c);

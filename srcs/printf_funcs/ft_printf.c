@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:35:54 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/01 13:01:43 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/02 13:19:23 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 char	*conv_funcs(va_list ap, char *conv, int i)
 {
-	char	*(*f[14])(va_list ap, char *conv);
+	char	*(*f[15])(va_list ap, char *conv);
 
-	if (i < 0 || i > 13)
+	if (i < 0 || i > 14)
 		return (NULL);
 	f[0] = &format_s;
 	f[1] = &format_s;
@@ -37,6 +37,7 @@ char	*conv_funcs(va_list ap, char *conv, int i)
 	f[11] = &format_x;
 	f[12] = &format_c;
 	f[13] = &format_c;
+	f[14] = &format_percent;
 	return (*f[i])(ap, conv);
 }
 
@@ -47,27 +48,9 @@ char	*check_conv(va_list ap, char *conv)
 	int		j;
 
 	i = 1;
-	conversions = ft_strdup("sSpdDioOuUxXcC");
+	conversions = ft_strdup("sSpdDioOuUxXcC%");
 	while (conv[i])
 	{
-		/*
-		if (conv[i] == 's' || conv[i] == 'S')
-			return (format_s(ap, conv));
-		if (conv[i] == 'p')
-			return (format_p(ap, conv));
-		if (conv[i] == 'd' || conv[i] == 'D')
-			return (format_d(ap, conv));
-		if (conv[i] == 'i')
-			return (format_i(ap, conv));
-		if (conv[i] == 'o' || conv[i] == 'O')
-			return (format_o(ap, conv));
-		if (conv[i] == 'u' || conv[i] == 'U')
-			return (format_u(ap, conv));
-		if (conv[i] == 'x' || conv[i] == 'X')
-			return (format_x(ap, conv));
-		if (conv[i] == 'c' || conv[i] == 'C')
-			return (format_c(ap, conv));
-		*/
 		if (is_conversion(conv[i]))
 		{
 			j = 0;
@@ -76,8 +59,6 @@ char	*check_conv(va_list ap, char *conv)
 			free(conversions);
 			return (conv_funcs(ap, conv, j));
 		}
-		if (conv[i] == '%')
-			return (ft_charstr('%'));
 		i++;
 	}
 	return (ft_strdup(""));
@@ -91,6 +72,8 @@ char	*convert_format(va_list ap, const char *fmt)
 {
 	char	*str;
 
+	if (*fmt == '\0')
+		return (ft_strdup(""));
 	while (*fmt)
 	{
 		if (!(fmt = str_parser((char *)fmt, &str)))
