@@ -6,20 +6,20 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 22:02:17 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/30 11:03:00 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/01 23:06:18 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	char	*adjust_precision(char *str, t_flag *flag)
+char			*adjust_precision(char *str, t_flag *flag)
 {
 	char	*tmp;
 	char	*prec;
 	int		len;
 
 	len = flag->precision - ft_strlen(str);
-	if ((len > 0 && flag->zero) || flag->base)
+	if (len > 0 && (flag->zero || !flag->str))
 	{
 		prec = (char *)ft_memset(ft_strnew(len), '0', len);
 		tmp = ft_strjoin(prec, str);
@@ -38,7 +38,7 @@ static	char	*adjust_precision(char *str, t_flag *flag)
 	return (tmp);
 }
 
-static	char	*fill_width(char *str, t_flag flag)
+char			*fill_width(char *str, t_flag flag)
 {
 	char	*tmp;
 	char	*prec;
@@ -54,28 +54,51 @@ static	char	*fill_width(char *str, t_flag flag)
 
 static char		*preset_prefix(t_flag flag, char *str)
 {
-	if (flag.plus && !flag.zero)
+	char	*tmp;
+
+	if (flag.plus && !flag.zero && !flag.negative)
 		str = ft_strprepend(str, '+');
-	if (flag.hash && !flag.zero)
-		str = ft_strjoin("0x", str);// memory leak
+	if (flag.hash && !flag.zero && !flag.octal)
+	{
+		tmp = ft_strjoin("0x", str);
+		free(str);
+		str = tmp;
+	}
+	else if (flag.hash && !flag.zero && !flag.dot && flag.octal)
+		str = ft_strprepend(str, '0');
+	else
 	if (flag.blank && !flag.zero)
 		str = ft_strprepend(str, ' ');
 	return (str);
 }
 
-char			*width_prec_fill(t_flag flag, char *str)
+static char		*set_prefix(t_flag flag, char *str)
 {
-	if (!flag.zero)
-		str = preset_prefix(flag, str);
-	if (flag.dot)
-		str = adjust_precision(str, &flag);
-	if ((flag.width -= ft_strlen(str)) > 0)
-  		str = fill_width(str, flag);
 	if (flag.blank && flag.zero)
 		*str = ' ';
-	if (flag.plus && flag.zero)
+	if (flag.plus && flag.zero && !flag.negative)
 		*str = '+';
-	if (flag.hash && flag.zero)
+	if (flag.hash && flag.zero && !flag.octal)
 		str[1] = 'x';
+	if (flag.negative && flag.zero)
+		*str = '-';
+	if (flag.negative && flag.dot)
+		str = ft_strprepend(str, '-');
+	return (str);
+}
+
+/*
+** this fill func is for s,d,i,c,u,x,o
+*/
+
+char			*width_prec_fill(t_flag flag, char *str)
+{
+	if (flag.dot)
+		str = adjust_precision(str, &flag);
+	if (!flag.zero)
+		str = preset_prefix(flag, str);
+	if ((flag.width -= ft_strlen(str)) > 0)
+  		str = fill_width(str, flag);
+	str = set_prefix(flag, str);
 	return (str);
 }

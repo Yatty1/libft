@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:36:39 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/30 11:22:42 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/01 23:24:16 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@
 
 typedef struct	s_flag
 {
+	int		negative;
+	int		zero_processed;
+	int		str;
+	int		octal;
 	int		width;
 	int		precision;
 	int		zero;
-	int		zero_processed;
 	int		plus;
 	int		minus;
 	int		dot;
 	int		blank;
 	int		hash;
-	int		base;
-	int		address;
 }				t_flag;
 
 int				ft_printf(const char *format, ...);
@@ -48,5 +49,9 @@ int				is_stop(char c);
 int				is_tflag(char c);
 void			check_flag(t_flag *flag, char *conv);
 char			*width_prec_fill(t_flag flag, char *str);
+char			*fill_width(char *str, t_flag flag);
+char			*adjust_precision(char *str, t_flag *flag);
+int				cvt_flag_oux(char *conv, va_list ap, char **str, int len);
+int				cvt_flag_di(char *conv, va_list ap, char **str, int len);
 
 #endif

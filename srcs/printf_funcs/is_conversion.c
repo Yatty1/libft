@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:50:49 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/29 13:58:33 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/01 22:28:24 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ int		is_conversion(char c)
 int		is_stop(char c)
 {
 	if (c == '.' || c == '%' || c == ' ' || c == '+' || c == '-' || c == '#')
+		return (1);
+	return (0);
+}
+
+int			is_tflag(char c)
+{
+	if (c == 'h' || c == 'l' || c == 'j' || c == 'z')
 		return (1);
 	return (0);
 }

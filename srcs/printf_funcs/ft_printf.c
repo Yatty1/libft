@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:35:54 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/30 11:05:03 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/01 13:01:43 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** being called by format_parser.
 */
 
-char	*conv_func(va_list ap, char *conv, int i)
+char	*conv_funcs(va_list ap, char *conv, int i)
 {
 	char	*(*f[14])(va_list ap, char *conv);
 
@@ -42,11 +42,15 @@ char	*conv_func(va_list ap, char *conv, int i)
 
 char	*check_conv(va_list ap, char *conv)
 {
+	char	*conversions;
 	int		i;
+	int		j;
 
 	i = 1;
+	conversions = ft_strdup("sSpdDioOuUxXcC");
 	while (conv[i])
 	{
+		/*
 		if (conv[i] == 's' || conv[i] == 'S')
 			return (format_s(ap, conv));
 		if (conv[i] == 'p')
@@ -63,11 +67,20 @@ char	*check_conv(va_list ap, char *conv)
 			return (format_x(ap, conv));
 		if (conv[i] == 'c' || conv[i] == 'C')
 			return (format_c(ap, conv));
+		*/
+		if (is_conversion(conv[i]))
+		{
+			j = 0;
+			while (conversions[j] != conv[i])
+				j++;
+			free(conversions);
+			return (conv_funcs(ap, conv, j));
+		}
 		if (conv[i] == '%')
 			return (ft_charstr('%'));
 		i++;
 	}
-	return (NULL);
+	return (ft_strdup(""));
 }
 
 /*

@@ -6,18 +6,12 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 20:52:55 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/30 11:21:50 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/01 23:24:15 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			is_tflag(char c)
-{
-	if (c == 'h' || c == 'l' || c == 'j' || c == 'z')
-		return (1);
-	return (0);
-}
 
 static int	get_width_prec(char *conv, t_flag *flag)
 {
@@ -63,6 +57,10 @@ void		check_flag(t_flag *flag, char *conv)
 	flag->dot = ft_strchr(conv, '.') ? 1 : 0;
 	flag->blank = ft_strchr(conv, ' ') ? 1 : 0;
 	flag->hash = ft_strchr(conv, '#') ? 1 : 0;
+	flag->str = 0;
+	flag->octal = 0;
+	flag->negative = 0;
+	flag->zero_processed = 0;
 	while (len > 0)
 	{
 		while (!is_stop(conv[len]))
@@ -72,5 +70,4 @@ void		check_flag(t_flag *flag, char *conv)
 			break ;
 		len--;
 	}
-	flag->zero_processed = 0;
 }
