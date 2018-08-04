@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:41:22 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/01 23:26:06 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/02 22:14:45 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ static char	*flag_s(char *conv, va_list ap)
 	len = ft_strlen(conv) - 2;
 	check_flag(&flag, conv);
 	if (conv[len] == '%')
-		return (ft_strdup(va_arg(ap, char *)));
+	{
+		if (!(str = va_arg(ap, char *)))
+			return (str);
+		return (ft_strdup(str));
+	}
 	if (is_tflag(conv[len]))
 	{
-		//need flag converter
 			return (NULL);
 	}
 	else

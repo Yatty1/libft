@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:42:58 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/01 23:25:19 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/02 22:11:14 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,12 @@ static char	*flag_d(char *conv, va_list ap)
 		str = ft_itoa(va_arg(ap, int));
 	if (*str == '-')
 	{
+		flag.blank = 0;
 		flag.negative = 1;
 		if (flag.zero || flag.dot)
 			str = take_minus(str);
 	}
+	flag.is_signed = 1;
 	str = width_prec_fill(flag, str);
 	return (str);
 }

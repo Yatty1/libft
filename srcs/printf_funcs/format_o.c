@@ -6,53 +6,35 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:44:27 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/01 23:25:49 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/02 22:14:13 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
-static char		*preset_prefix(t_flag flag, char *str)
+
+static int	cvt_flag_o(char *conv, va_list ap, char **str, int len)
 {
-	char	*tmp;
+	char	*flag;
 
-	if (flag.plus && !flag.zero && !flag.negative)
-		str = ft_strprepend(str, '+');
-	if (flag.hash && !flag.zero && !flag.dot)//since there is already zero
-		str = ft_strprepend(str, '0');
-	if (flag.blank && !flag.zero)
-		str = ft_strprepend(str, ' ');
-	return (str);
+	if (!(flag = take_flag(conv, len)))
+		return (-1);
+	if (ft_strcmp(flag, "hh") == 0)
+		*str = ft_uitoa_base((unsigned char)va_arg(ap, unsigned int), 8, 0);//unsigned char
+	else if (ft_strcmp(flag, "h") == 0)
+		*str = ft_uitoa_base((unsigned short)va_arg(ap, unsigned int), 8, 0);//unsigned short
+	else if (ft_strcmp(flag, "l") == 0)
+		*str = ft_ultoa_base(va_arg(ap, unsigned long), 8, 0);
+	else if (ft_strcmp(flag, "ll") == 0)
+		*str = ft_ulltoa_base(va_arg(ap, unsigned long long), 8, 0);
+	else if (ft_strcmp(flag, "j") == 0)
+		*str = ft_ulltoa_base(va_arg(ap, uintmax_t), 8, 0);
+	else if (ft_strcmp(flag, "z") == 0)
+		*str = ft_uitoa_base(va_arg(ap, size_t), 8, 0);
+	free(flag);
+	if (!*str)
+		return (-1);
+	return (len);
 }
-
-static char		*set_prefix(t_flag flag, char *str)
-{
-	if (flag.blank && flag.zero)
-		*str = ' ';
-	if (flag.plus && flag.zero && !flag.negative)
-		*str = '+';
-	//if (flag.hash && flag.zero)
-	//	str[1] = 'x';
-	if (flag.negative && flag.zero)
-		*str = '-';
-	if (flag.negative && flag.dot)
-		str = ft_strprepend(str, '-');
-	return (str);
-}
-
-
-static char	*width_prec_fill_o(t_flag flag, char *str)
-{
-	if (flag.dot)
-		str = adjust_precision(str, &flag);
-	if (!flag.zero)
-		str = preset_prefix(flag, str);
-	if ((flag.width -= ft_strlen(str)) > 0)
-  		str = fill_width(str, flag);
-	str = set_prefix(flag, str);
-	return (str);
-}
-*/
 
 static char	*flag_o(char *conv, va_list ap)
 {
@@ -66,7 +48,7 @@ static char	*flag_o(char *conv, va_list ap)
 		return (ft_itoa_base(va_arg(ap, int), 8, 0));
 	if (is_tflag(conv[len]))
 	{
-		if ((len = cvt_flag_oux(conv, ap, &str, len)) > 0)
+		if ((len = cvt_flag_o(conv, ap, &str, len)) < 0)
 			return (NULL);
 	}
 	else

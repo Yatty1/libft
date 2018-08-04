@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 22:36:43 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/01 23:20:47 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/03 13:22:06 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*str_parser(char *fmt, char **str)
 	return (fmt + i);
 }
 
-char	*format_parser(char *fmt, char **str, va_list ap)
+char	*format_parser(char *fmt, char **str, va_list ap, int *len)
 {
 	char	*buf;
 	char	*tmp;
@@ -53,16 +53,17 @@ char	*format_parser(char *fmt, char **str, va_list ap)
 			return (NULL);
 		tmp = ft_strsub(fmt, 0, i + 1);
 		if (!*str)
-			*str = check_conv(ap, tmp);
+			*str = check_conv(ap, tmp, *str, len);
 		else
 		{
-			t = check_conv(ap, tmp);
+			if (!(t = check_conv(ap, tmp, *str, len)))
+				t = ft_strdup("(null)");
 			buf = ft_strjoin(*str, t);
-			free(t);
-			free(*str);
+			ft_strdel(&t);
+		//	ft_strdel(str);
 			*str = buf;
 		}
-		free(tmp);
+		ft_strdel(&tmp);
 	}
 	return (fmt + i + 1);
 }
