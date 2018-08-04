@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 21:09:22 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 15:50:06 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 16:07:11 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int			cvt_flag_di(char *conv, va_list ap, char **str, int len)
 	if (!(flag = take_flag(conv, len)))
 		return (-1);
 	if (ft_strcmp(flag, "hh") == 0)
-		*str = ft_itoa((char)va_arg(ap, int));//signed char
+		*str = ft_itoa((char)va_arg(ap, int));
 	else if (ft_strcmp(flag, "h") == 0)
-		*str = ft_itoa((short)va_arg(ap, int));//short
+		*str = ft_itoa((short)va_arg(ap, int));
 	else if (ft_strcmp(flag, "l") == 0)
 		*str = ft_ltoa(va_arg(ap, long));
 	else if (ft_strcmp(flag, "ll") == 0)
@@ -45,7 +45,7 @@ int			cvt_flag_di(char *conv, va_list ap, char **str, int len)
 	else if (ft_strcmp(flag, "j") == 0)
 		*str = ft_imaxtoa(va_arg(ap, intmax_t));
 	else if (ft_strcmp(flag, "z") == 0)
-		*str = ft_lltoa(va_arg(ap, size_t));
+		*str = ft_sizetoa_base(va_arg(ap, size_t), 10, 0);
 	free(flag);
 	if (!*str)
 		return (-1);
