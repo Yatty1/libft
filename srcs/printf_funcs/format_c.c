@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:45:08 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/03 23:03:11 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 15:21:08 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static char	*put_null(char *str, int *len, t_flag *flag)
 	}
 	*len += ft_strlen(str);
 	ft_putstr(str);
+	free(str);
+	str = ft_strdup("");
 	if (flag->minus && wd)
 	{
 		ft_putchar('\0');
@@ -42,8 +44,6 @@ static char	*put_null(char *str, int *len, t_flag *flag)
 	if (wd)
 		free(wd);
 	*len += 1;
-	free(str);
-	str = ft_strdup("");
 	return (str);
 }
 
