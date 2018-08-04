@@ -6,13 +6,13 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 13:39:15 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 14:57:42 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 15:41:03 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		conv_ex(int nb, int is_cap)
+static int		conv_ex(uintmax_t nb, int is_cap)
 {
 	char c;
 
