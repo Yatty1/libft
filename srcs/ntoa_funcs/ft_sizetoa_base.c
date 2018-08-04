@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ulltoa_base.c                                   :+:      :+:    :+:   */
+/*   ft_sizetoa_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/30 10:07:42 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 15:41:22 by syamada          ###   ########.fr       */
+/*   Created: 2018/08/04 15:39:34 by syamada           #+#    #+#             */
+/*   Updated: 2018/08/04 15:46:27 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static int		conv_ex(int nb, int is_cap)
 		return (nb + '0');
 }
 
-char			*ft_ulltoa_base(unsigned long long num, unsigned int base,
+char			*ft_sizetoa_base(size_t num, unsigned int base,
 								int is_cap)
 {
-	int					i;
-	char				*str;
-	unsigned long long	tmp;
+	int			i;
+	char		*str;
+	size_t		tmp;
 
 	i = 0;
 	tmp = num;
