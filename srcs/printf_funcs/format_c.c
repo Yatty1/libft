@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:45:08 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/03 22:23:25 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/03 23:03:11 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,33 @@ static char	*put_null(char *str, int *len, t_flag *flag)
 	char	*wd;
 
 	wd = NULL;
-	if (str)
+	if (!str)
+		return (str);
+	if (flag->width > 1)
 	{
-		if (flag->width > 1)
-		{
-			*len = flag->width - 1;
-			wd = ft_memset(ft_strnew(flag->width - 1), ' ', flag->width - 1);
-			flag->width = 0;
-		}
-		*len += ft_strlen(str);
-		ft_putstr(str);
-		if (flag->minus && wd)
-		{
-			ft_putchar('\0');
-			ft_putstr(wd);
-		}
-		else if (wd)
-		{
-			ft_putstr(wd);
-			ft_putchar('\0');
-		}
-		else
-			ft_putchar('\0');
-		*len += 1;
-		free(str);
-		str = ft_strdup("");
+		*len = flag->width - 1;
+		wd = ft_memset(ft_strnew(flag->width - 1), ' ', flag->width - 1);
+		flag->width = 0;
 	}
+	*len += ft_strlen(str);
+	ft_putstr(str);
+	if (flag->minus && wd)
+	{
+		ft_putchar('\0');
+		ft_putstr(wd);
+	}
+	else if (wd)
+	{
+		ft_putstr(wd);
+		ft_putchar('\0');
+	}
+	else
+		ft_putchar('\0');
+	if (wd)
+		free(wd);
+	*len += 1;
+	free(str);
+	str = ft_strdup("");
 	return (str);
 }
 

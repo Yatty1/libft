@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:44:40 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/02 22:14:38 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 13:48:52 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char		*format_u(va_list ap, char *conv)
 	{
 		if (conv[i] == 'u')
 			return (flag_u(conv, ap));
-		else if (conv[i] == 'D')
+		else if (conv[i] == 'U')
 			str = ft_ultoa_base(va_arg(ap, unsigned long), 10, 0);
 		i++;
 	}

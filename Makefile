@@ -6,7 +6,7 @@
 #    By: syamada <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 13:43:20 by syamada           #+#    #+#              #
-#    Updated: 2018/08/02 16:06:23 by syamada          ###   ########.fr        #
+#    Updated: 2018/08/04 13:52:51 by syamada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ EXTRAS	:= ft_strinit.c	ft_strrev.c ft_wordcount.c ft_strjoin_with.c get_next_lin
 	ft_charstr.c ft_strprepend.c ft_strappend.c  \
 
 NTOAS	:= ft_itoa_base.c ft_ltoa_base.c ft_lltoa_base.c ft_uitoa_base.c ft_ultoa_base.c ft_ulltoa_base.c \
-			ft_ltoa.c ft_lltoa.c ft_imaxtoa.c
+			ft_ltoa.c ft_lltoa.c ft_imaxtoa.c ft_uimaxtoa.c
 PRINTF	:= ft_printf.c \
 			format_c.c format_d.c format_i.c format_o.c format_p.c format_s.c format_u.c format_x.c format_percent.c\
 			is_conversion.c parsers.c width_prec_fill.c flag_checker.c flag_converter.c
