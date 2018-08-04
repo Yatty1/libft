@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 16:40:06 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/03 23:17:05 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 14:43:48 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char		*ft_lltoa(long long n)
 		return (ft_strdup("-9223372036854775808"));
 	is_minus = check_minus(&n);
 	i = get_len(n, is_minus);
-	if (!(str = ft_strnew(sizeof(i) + 1)))
+	if (!(str = ft_strnew(i + 1)))
 		return (NULL);
 	str[--i] = '\0';
 	while (i--)

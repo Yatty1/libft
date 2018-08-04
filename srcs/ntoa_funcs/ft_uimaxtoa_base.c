@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 13:39:15 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 14:28:17 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 14:39:40 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char			*ft_uimaxtoa_base(uintmax_t num, unsigned int base,
 		tmp = tmp / base;
 		i++;
 	}
-	if (!(str = ft_strnew(++i)))
+	if (!(str = ft_strnew(i)))
 		return (NULL);
 	str[i + 1] = '\0';
 	while (i >= 0)
