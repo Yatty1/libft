@@ -6,13 +6,13 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 16:40:06 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/02 15:00:27 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 14:43:48 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check_minus(int *n)
+static int	check_minus(long long *n)
 {
 	int		is_minus;
 
@@ -25,7 +25,7 @@ static int	check_minus(int *n)
 	return (is_minus);
 }
 
-static int	get_len(int num, int is_minus)
+static int	get_len(long long num, int is_minus)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ static int	get_len(int num, int is_minus)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char		*ft_lltoa(long long n)
 {
 	char	*str;
 	int		is_minus;
@@ -44,11 +44,11 @@ char		*ft_itoa(int n)
 
 	if (n == 0)
 		return (ft_strdup("0"));
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	if (n == -9223372036854775807 - 1)
+		return (ft_strdup("-9223372036854775808"));
 	is_minus = check_minus(&n);
 	i = get_len(n, is_minus);
-	if (!(str = ft_strnew(sizeof(i) + 1)))
+	if (!(str = ft_strnew(i + 1)))
 		return (NULL);
 	str[--i] = '\0';
 	while (i--)

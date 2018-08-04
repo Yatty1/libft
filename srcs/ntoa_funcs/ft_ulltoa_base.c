@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 10:07:42 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/30 10:19:04 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 15:11:21 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ char			*ft_ulltoa_base(unsigned long long num, unsigned int base,
 		tmp = tmp / base;
 		i++;
 	}
-	if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
+	if (!(str = ft_strnew(++i)))
 		return (NULL);
-	str[i + 1] = '\0';
+	str[i--] = '\0';
 	while (i >= 0)
 	{
 		tmp = num % base;

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
+/*   ft_uimaxtoa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/30 10:05:01 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 15:04:45 by syamada          ###   ########.fr       */
+/*   Created: 2018/08/04 13:39:15 by syamada           #+#    #+#             */
+/*   Updated: 2018/08/04 14:57:42 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		conv_ex(unsigned int nb, int is_cap)
+static int		conv_ex(int nb, int is_cap)
 {
 	char c;
 
@@ -23,26 +23,23 @@ static int		conv_ex(unsigned int nb, int is_cap)
 		return (nb + '0');
 }
 
-char			*ft_uitoa_base(unsigned int num, unsigned int base, int is_cap)
+char			*ft_uimaxtoa_base(uintmax_t num, unsigned int base,
+								int is_cap)
 {
-	int				i;
-	char			*str;
-	unsigned int	tmp;
+	int			i;
+	char		*str;
+	uintmax_t	tmp;
 
 	i = 0;
-	if ((long)num < 0 && !is_cap)
-		return (ft_strdup("ffffffd6"));
-	else if ((long)num < 0 && is_cap)
-		return (ft_strdup("FFFFFFd6"));
 	tmp = num;
 	while (tmp >= base)
 	{
 		tmp = tmp / base;
 		i++;
 	}
-	if (!(str = (char *)malloc(sizeof(char) * (i + 1))))
+	if (!(str = ft_strnew(++i)))
 		return (NULL);
-	str[i + 1] = '\0';
+	str[i--] = '\0';
 	while (i >= 0)
 	{
 		tmp = num % base;

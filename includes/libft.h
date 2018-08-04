@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 13:46:49 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/30 10:25:29 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 13:51:00 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,10 @@ char				*ft_charstr(char c);
 char				*ft_strappend(char *str, char c);
 char				*ft_strprepend(char *str, char c);
 
+char				*ft_ltoa(long n);
+char				*ft_lltoa(long long n);
+char				*ft_imaxtoa(intmax_t n);
+char				*ft_uimaxtoa_base(uintmax_t n, unsigned int base, int is_cap);
 char				*ft_itoa_base(int num, int base, int is_cap);
 char				*ft_ltoa_base(long num, int base, int is_cap);
 char				*ft_lltoa_base(long long num, int base, int is_cap);

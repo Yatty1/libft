@@ -6,13 +6,13 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 10:06:20 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/30 10:25:00 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/03 23:15:31 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		conv_ex(int nb, int is_cap)
+static int		conv_ex(unsigned long nb, int is_cap)
 {
 	char c;
 
