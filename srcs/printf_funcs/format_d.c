@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:42:58 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 18:30:07 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 23:24:47 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char	*flag_d(char *conv, va_list ap)
 	t_flag	flag;
 
 	len = ft_strlen(conv) - 2;
-	check_flag(&flag, conv);
+	check_flag(&flag, conv, ap);
 	if (conv[len] == '%')
 		return (ft_itoa(va_arg(ap, int)));
 	if (is_tflag(conv[len]))
@@ -66,7 +66,7 @@ static char	*flag_D(char *conv, va_list ap)
 	t_flag	flag;
 
 	len = ft_strlen(conv) - 2;
-	check_flag(&flag, conv);
+	check_flag(&flag, conv, ap);
 	str = ft_ltoa(va_arg(ap, long));
 	if (conv[len] == '%')
 		return (str);

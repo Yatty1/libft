@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:41:22 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 18:13:01 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 23:23:34 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*flag_s(char *conv, va_list ap)
 	t_flag	flag;
 
 	len = ft_strlen(conv) - 2;
-	check_flag(&flag, conv);
+	check_flag(&flag, conv, ap);
 	if (conv[len] == '%')
 	{
 		if (!(str = va_arg(ap, char *)))

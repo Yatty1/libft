@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:42:30 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/01 23:25:57 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 23:22:27 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*flag_p(char *conv, va_list ap)
 	t_flag	flag;
 
 	len = ft_strlen(conv) - 2;
-	check_flag(&flag, conv);
+	check_flag(&flag, conv, ap);
 	str = ft_lltoa_base(va_arg(ap, long long), 16, 0);
 	tmp = ft_strjoin("0x", str);
 	free(str);
