@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 22:36:43 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 17:46:50 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 21:22:50 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*format_parser(char *fmt, char **str, va_list ap, int *len)
 				t = ft_strdup("(null)");
 			buf = ft_strjoin(*str, t);
 			ft_strdel(&t);
-//			ft_strdel(str);
+			free(*str);
 			*str = buf;
 		}
 		ft_strdel(&tmp);
