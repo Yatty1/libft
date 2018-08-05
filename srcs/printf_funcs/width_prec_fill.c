@@ -6,66 +6,11 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 22:02:17 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 22:46:21 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 15:30:58 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char			*adjust_precision(char *str, t_flag *flag)
-{
-	char	*tmp;
-	char	*prec;
-	int		len;
-
-	len = flag->precision - ft_strlen(str);
-	if (len > 0 && (flag->zero || !flag->str))
-	{
-		prec = (char *)ft_memset(ft_strnew(len), '0', len);
-		tmp = ft_strjoin(prec, str);
-		free(str);
-		free(prec);
-		flag->zero_processed = 1;
-	}
-	else if (len >= 0)
-	{
-		flag->zero_processed = 1;
-		return (str);
-	}
-	else if (flag->str)
-	{
-		tmp = ft_strsub(str, 0, flag->precision);
-		free(str);
-		flag->zero_processed = 1;
-	}
-	else if (flag->dot && flag->precision == 0 && *str == '0')
-	{
-		if (flag->width > 0)
-			tmp = (char *)ft_memset(ft_strnew(flag->width), ' ', flag->width);
-		else if (flag->hash && flag->octal)
-			tmp = ft_strdup(str);
-		else
-			tmp = ft_strdup("");
-		free(str);
-	}
-	else
-		tmp = str;
-	return (tmp);
-}
-
-char			*fill_width(char *str, t_flag flag)
-{
-	char	*tmp;
-	char	*prec;
-	char	c;
-
-	c = flag.zero && !flag.zero_processed ? '0' : ' ';
-	prec = (char *)ft_memset(ft_strnew(flag.width), c, flag.width);
-	tmp = flag.minus ? ft_strjoin(str, prec) : ft_strjoin(prec, str);
-	free(str);
-	free(prec);
-	return (tmp);
-}
 
 static char		*preset_prefix(t_flag flag, char *str)
 {

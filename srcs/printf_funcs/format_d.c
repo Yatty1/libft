@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:42:58 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 23:24:47 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 14:43:19 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static char	*flag_d(char *conv, va_list ap)
 	return (str);
 }
 
-static char	*flag_D(char *conv, va_list ap)
+static char	*flag_cd(char *conv, va_list ap)
 {
 	char	*str;
 	int		len;
@@ -92,7 +92,7 @@ char		*format_d(va_list ap, char *conv)
 		if (conv[i] == 'd')
 			return (flag_d(conv, ap));
 		else if (conv[i] == 'D')
-			return (flag_D(conv, ap));
+			return (flag_cd(conv, ap));
 		i++;
 	}
 	return (NULL);

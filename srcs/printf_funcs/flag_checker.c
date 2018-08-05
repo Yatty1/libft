@@ -6,11 +6,24 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 20:52:55 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 23:36:36 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 15:55:07 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	count_helper(char *conv, int *len)
+{
+	int		i;
+
+	i = 0;
+	while (!is_stop(conv[*len]))
+	{
+		i++;
+		*len -= 1;
+	}
+	return (i);
+}
 
 static int	get_width_prec(char *conv, t_flag *flag, va_list ap)
 {
@@ -18,7 +31,6 @@ static int	get_width_prec(char *conv, t_flag *flag, va_list ap)
 	int		i;
 	char	*tmp;
 
-	i = 0;
 	len = ft_strlen(conv) - 2;
 	flag->width = 0;
 	flag->precision = 0;
@@ -26,11 +38,7 @@ static int	get_width_prec(char *conv, t_flag *flag, va_list ap)
 		len--;
 	while (len > 0)
 	{
-		while (!is_stop(conv[len]))
-		{
-			i++;
-			len--;
-		}
+		i = count_helper(conv, &len);
 		if (!(tmp = ft_strsub(conv, len + 1, i)))
 			return (-1);
 		if (conv[len] == '.')

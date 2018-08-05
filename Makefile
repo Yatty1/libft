@@ -6,7 +6,7 @@
 #    By: syamada <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 13:43:20 by syamada           #+#    #+#              #
-#    Updated: 2018/08/04 21:37:10 by syamada          ###   ########.fr        #
+#    Updated: 2018/08/05 16:00:31 by syamada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ NTOAS	:= ft_itoa_base.c ft_ltoa_base.c ft_lltoa_base.c ft_uitoa_base.c ft_ultoa_
 
 PRINTF	:= ft_printf.c \
 			format_c.c format_d.c format_i.c format_o.c format_p.c format_s.c format_u.c format_x.c format_percent.c\
-			is_conversion.c parsers.c width_prec_fill.c flag_checker.c flag_converter.c
+			is.c parsers.c width_prec_fill.c flag_checker.c flag_converter.c \
+			ls_handler.c lc_handler.c wp_helper.c ft_helper.c
 
 LIBC_D	:= $(addprefix $(LIBCDIR)/, $(LIBCS))
 ADD_D	:= $(addprefix $(ADDDIR)/, $(ADDS))

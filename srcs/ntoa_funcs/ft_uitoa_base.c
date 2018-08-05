@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 10:05:01 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 15:04:45 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 15:20:57 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ char			*ft_uitoa_base(unsigned int num, unsigned int base, int is_cap)
 	unsigned int	tmp;
 
 	i = 0;
-	if ((long)num < 0 && !is_cap)
-		return (ft_strdup("ffffffd6"));
-	else if ((long)num < 0 && is_cap)
-		return (ft_strdup("FFFFFFd6"));
 	tmp = num;
 	while (tmp >= base)
 	{
