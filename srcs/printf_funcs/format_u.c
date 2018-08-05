@@ -6,22 +6,22 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:44:40 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 17:36:42 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 17:45:07 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		cvt_flag_u(char *conv, va_list ap, char **str, int len)
+static int	cvt_flag_u(char *conv, va_list ap, char **str, int len)
 {
 	char	*flag;
 
 	if (!(flag = take_flag(conv, len)))
 		return (-1);
 	if (ft_strcmp(flag, "hh") == 0)
-		*str = ft_uitoa_base((unsigned char)va_arg(ap, unsigned int), 10, 0);//unsigned char
+		*str = ft_uitoa_base((unsigned char)va_arg(ap, unsigned int), 10, 0);
 	else if (ft_strcmp(flag, "h") == 0)
-		*str = ft_uitoa_base((unsigned short)va_arg(ap, unsigned int), 10, 0);//unsigned short
+		*str = ft_uitoa_base((unsigned short)va_arg(ap, unsigned int), 10, 0);
 	else if (ft_strcmp(flag, "l") == 0)
 		*str = ft_ultoa_base(va_arg(ap, unsigned long), 10, 0);
 	else if (ft_strcmp(flag, "ll") == 0)

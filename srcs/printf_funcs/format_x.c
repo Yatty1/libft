@@ -6,13 +6,13 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:44:52 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 17:36:57 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 17:44:36 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		cvt_flag_x(char *conv, va_list ap, char **str, int len)
+static int	cvt_flag_x(char *conv, va_list ap, char **str, int len)
 {
 	char	*flag;
 
@@ -60,7 +60,7 @@ static char	*flag_x(char *conv, va_list ap, int is_cap)
 	return (str);
 }
 
-char	*format_x(va_list ap, char *conv)
+char		*format_x(va_list ap, char *conv)
 {
 	int		i;
 

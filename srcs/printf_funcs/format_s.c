@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:41:22 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/02 22:14:45 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 17:43:49 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char	*flag_s(char *conv, va_list ap)
 	return (str);
 }
 
-char	*format_s(va_list ap, char *conv)
+char		*format_s(va_list ap, char *conv)
 {
 	int		i;
 

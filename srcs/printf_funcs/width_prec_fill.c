@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 22:02:17 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 15:30:38 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 17:46:42 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,7 @@ static char		*preset_prefix(t_flag flag, char *str)
 	}
 	else if (flag.hash && !flag.zero && !flag.dot && flag.octal)
 		str = ft_strprepend(str, '0');
-	else
-	if (flag.blank && !flag.zero && flag.is_signed)
+	else if (flag.blank && !flag.zero && flag.is_signed)
 		str = ft_strprepend(str, ' ');
 	return (str);
 }
@@ -115,7 +114,7 @@ char			*width_prec_fill(t_flag flag, char *str)
 	if (!flag.zero)
 		str = preset_prefix(flag, str);
 	if ((flag.width -= ft_strlen(str)) > 0)
-  		str = fill_width(str, flag);
+		str = fill_width(str, flag);
 	str = set_prefix(flag, str);
 	return (str);
 }
