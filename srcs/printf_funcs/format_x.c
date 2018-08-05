@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:44:52 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 17:44:36 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 23:24:29 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*flag_x(char *conv, va_list ap, int is_cap)
 	t_flag		flag;
 
 	len = ft_strlen(conv) - 2;
-	check_flag(&flag, conv);
+	check_flag(&flag, conv, ap);
 	if (conv[len] == '%')
 		return (ft_uitoa_base(va_arg(ap, unsigned int), 16, is_cap));
 	if (is_tflag(conv[len]))

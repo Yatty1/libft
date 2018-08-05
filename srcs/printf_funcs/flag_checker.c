@@ -6,13 +6,13 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 20:52:55 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 18:31:45 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 23:36:36 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	get_width_prec(char *conv, t_flag *flag)
+static int	get_width_prec(char *conv, t_flag *flag, va_list ap)
 {
 	int		len;
 	int		i;
@@ -22,7 +22,7 @@ static int	get_width_prec(char *conv, t_flag *flag)
 	len = ft_strlen(conv) - 2;
 	flag->width = 0;
 	flag->precision = 0;
-	while (!ft_isdigit(conv[len]) && len > 0)
+	while (conv[len] != '*' && !ft_isdigit(conv[len]) && len > 0)
 		len--;
 	while (len > 0)
 	{
@@ -34,9 +34,9 @@ static int	get_width_prec(char *conv, t_flag *flag)
 		if (!(tmp = ft_strsub(conv, len + 1, i)))
 			return (-1);
 		if (conv[len] == '.')
-			flag->precision = ft_atoi(tmp);
+			flag->precision = *tmp == '*' ? va_arg(ap, int) : ft_atoi(tmp);
 		else
-			flag->width = ft_atoi(tmp);
+			flag->width = *tmp == '*' ? va_arg(ap, int) : ft_atoi(tmp);
 		free(tmp);
 		if (flag->width != 0)
 			break ;
@@ -45,12 +45,12 @@ static int	get_width_prec(char *conv, t_flag *flag)
 	return (i);
 }
 
-void		check_flag(t_flag *flag, char *conv)
+void		check_flag(t_flag *flag, char *conv, va_list ap)
 {
 	int		len;
 
 	len = ft_strlen(conv) - 1;
-	get_width_prec(conv, flag);
+	get_width_prec(conv, flag, ap);
 	flag->plus = ft_strchr(conv, '+') ? 1 : 0;
 	flag->minus = ft_strchr(conv, '-') ? 1 : 0;
 	flag->dot = ft_strchr(conv, '.') ? 1 : 0;
