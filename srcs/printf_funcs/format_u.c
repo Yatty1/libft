@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:44:40 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 13:48:52 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 17:36:42 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int		cvt_flag_u(char *conv, va_list ap, char **str, int len)
 	else if (ft_strcmp(flag, "j") == 0)
 		*str = ft_ulltoa_base(va_arg(ap, uintmax_t), 10, 0);
 	else if (ft_strcmp(flag, "z") == 0)
-		*str = ft_uitoa_base(va_arg(ap, size_t), 10, 0);
+		*str = ft_sizetoa_base(va_arg(ap, size_t), 10, 0);
 	free(flag);
 	if (!*str)
 		return (-1);

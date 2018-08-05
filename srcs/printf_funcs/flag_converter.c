@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 21:09:22 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 16:07:11 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 17:37:25 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			cvt_flag_di(char *conv, va_list ap, char **str, int len)
 	else if (ft_strcmp(flag, "j") == 0)
 		*str = ft_imaxtoa(va_arg(ap, intmax_t));
 	else if (ft_strcmp(flag, "z") == 0)
-		*str = ft_sizetoa_base(va_arg(ap, size_t), 10, 0);
+		*str = ft_lltoa(va_arg(ap, size_t));
 	free(flag);
 	if (!*str)
 		return (-1);
