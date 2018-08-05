@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:36:39 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/03 12:32:59 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 23:19:45 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 # include "libft.h"
 # include <stdarg.h>
+# include <wchar.h>
 #include <stdio.h>
 
 typedef struct	s_flag
@@ -53,7 +54,7 @@ char			*format_percent(va_list ap, char *conv);
 int				is_conversion(char c);
 int				is_stop(char c);
 int				is_tflag(char c);
-void			check_flag(t_flag *flag, char *conv);
+void			check_flag(t_flag *flag, char *conv, va_list ap);
 char			*width_prec_fill(t_flag flag, char *str);
 char			*fill_width(char *str, t_flag flag);
 char			*adjust_precision(char *str, t_flag *flag);
