@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:42:58 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/02 22:11:14 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 17:52:38 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char		*format_d(va_list ap, char *conv)
 		if (conv[i] == 'd')
 			return (flag_d(conv, ap));
 		else if (conv[i] == 'D')
-			return (ft_itoa(va_arg(ap, int)));
+			return (ft_ltoa(va_arg(ap, long)));
 		i++;
 	}
 	return (NULL);
