@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:35:54 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 15:20:05 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 22:26:46 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ char	*convert_format(va_list ap, const char *fmt, int *len)
 {
 	char	*str;
 
+	str = NULL;
 	if (*fmt == '\0')
 		return (ft_strdup(""));
 	while (*fmt)
@@ -93,12 +94,13 @@ int		ft_printf(const char *format, ...)
 	int			len;
 
 	len = 0;
+	str = NULL;
 	va_start(ap, format);
 	if (!(str = convert_format(ap, format, &len)))
 		return (-1);
 	va_end(ap);
 	ft_putstr(str);
 	len += ft_strlen(str);
-	free(str);
+	ft_strdel(&str);
 	return (len);
 }
