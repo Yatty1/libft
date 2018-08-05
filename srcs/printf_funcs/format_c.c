@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/25 16:45:08 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 17:43:17 by syamada          ###   ########.fr       */
+/*   Created: 2018/08/04 18:12:30 by syamada           #+#    #+#             */
+/*   Updated: 2018/08/04 21:32:42 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*put_null(char *str, int *len, t_flag *flag)
 
 	wd = NULL;
 	if (!str)
-		return (str);
+		return (ft_strdup(""));
 	if (flag->width > 1)
 	{
 		*len = flag->width - 1;
@@ -28,6 +28,7 @@ static char	*put_null(char *str, int *len, t_flag *flag)
 	*len += ft_strlen(str);
 	ft_putstr(str);
 	free(str);
+	str = NULL;
 	str = ft_strdup("");
 	if (flag->minus && wd)
 	{
@@ -41,10 +42,10 @@ static char	*put_null(char *str, int *len, t_flag *flag)
 	}
 	else
 		ft_putchar('\0');
-	if (wd)
+	if (wd != NULL)
 		free(wd);
 	*len += 1;
-	return (str);
+	return (ft_strdup(""));
 }
 
 static char	*flag_c(char *conv, va_list ap, char *c_s, int *t_len)
@@ -84,7 +85,7 @@ char		*format_c(va_list ap, char *conv, char *str, int *len)
 		if (conv[i] == 'c')
 			return (flag_c(conv, ap, str, len));
 		if (conv[i] == 'C')
-			return (ft_charstr(va_arg(ap, int)));
+			return (ft_charstr(va_arg(ap, wchar_t)));
 		i++;
 	}
 	return (NULL);

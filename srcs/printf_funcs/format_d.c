@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:42:58 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 17:52:38 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 18:30:07 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,29 @@ static char	*flag_d(char *conv, va_list ap)
 	return (str);
 }
 
+static char	*flag_D(char *conv, va_list ap)
+{
+	char	*str;
+	int		len;
+	t_flag	flag;
+
+	len = ft_strlen(conv) - 2;
+	check_flag(&flag, conv);
+	str = ft_ltoa(va_arg(ap, long));
+	if (conv[len] == '%')
+		return (str);
+	if (*str == '-')
+	{
+		flag.blank = 0;
+		flag.negative = 1;
+		if (flag.zero || flag.dot)
+			str = take_minus(str);
+	}
+	flag.is_signed = 1;
+	str = width_prec_fill(flag, str);
+	return (str);
+}
+
 char		*format_d(va_list ap, char *conv)
 {
 	int		i;
@@ -69,7 +92,7 @@ char		*format_d(va_list ap, char *conv)
 		if (conv[i] == 'd')
 			return (flag_d(conv, ap));
 		else if (conv[i] == 'D')
-			return (ft_ltoa(va_arg(ap, long)));
+			return (flag_D(conv, ap));
 		i++;
 	}
 	return (NULL);
