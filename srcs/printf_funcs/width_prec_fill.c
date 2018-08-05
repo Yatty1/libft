@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 22:02:17 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 18:31:35 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 22:46:05 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ char			*adjust_precision(char *str, t_flag *flag)
 		flag->zero_processed = 1;
 	}
 	else if (len >= 0)
+	{
+		flag->zero_processed = 1;
 		return (str);
+	}
 	else if (flag->str)
 	{
 		tmp = ft_strsub(str, 0, flag->precision);
@@ -77,7 +80,10 @@ static char		*preset_prefix(t_flag flag, char *str)
 		str = tmp;
 	}
 	else if (flag.hash && !flag.zero && !flag.dot && flag.octal)
-		str = ft_strprepend(str, '0');
+	{
+		if (*str != '0')
+			str = ft_strprepend(str, '0');
+	}
 	else if (flag.blank && !flag.zero && flag.is_signed)
 		str = ft_strprepend(str, ' ');
 	return (str);
