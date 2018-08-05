@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 22:02:17 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 18:31:35 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/04 22:36:32 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ char			*adjust_precision(char *str, t_flag *flag)
 		flag->zero_processed = 1;
 	}
 	else if (len >= 0)
+	{
+		flag->zero_processed = 1;
 		return (str);
+	}
 	else if (flag->str)
 	{
 		tmp = ft_strsub(str, 0, flag->precision);
