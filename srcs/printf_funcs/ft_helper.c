@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 15:41:17 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 21:41:24 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 23:33:14 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ char		*put_null(char *str, int *len, t_flag *flag)
 		return (ft_strdup(""));
 	*len += ft_strlen(str);
 	ft_putstr(str);
-	free(str);
-	str = NULL;
+	ft_strdel(&str);
 	str = ft_strdup("");
 	null_helper(flag, len);
 	*len += 1;
