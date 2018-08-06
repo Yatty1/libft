@@ -13,7 +13,7 @@
 CC		:= gcc
 CFLAGS	:= -Wall -Werror -Wextra
 
-NAME	:= libftprintf.a
+NAME	:= libft.a
 SRCDIR	:= srcs
 OBJDIR	:= obj
 INCDIR	:= includes
