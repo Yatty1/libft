@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 15:26:31 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 16:11:31 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 17:25:00 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ char			*adjust_precision(char *str, t_flag *flag)
 		tmp = ft_strjoinfree(prec, str);
 	}
 	else if (len >= 0)
-		return (str);
-	else if (flag->str)
 	{
-		tmp = ft_strsub(str, 0, flag->precision);
-		free(str);
+		flag->zero_processed = 1;
+		return (str);
 	}
+	else if (flag->str)
+		tmp = ft_strsubfree(str, 0, flag->precision);
 	else if (flag->dot && flag->precision == 0 && *str == '0')
 		tmp = zero_precision(str, *flag);
 	else
