@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:36:39 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 15:43:17 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 16:39:32 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "libft.h"
 # include <stdarg.h>
 # include <wchar.h>
-#include <stdio.h>
 
 typedef struct	s_flag
 {
