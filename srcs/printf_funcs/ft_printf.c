@@ -6,16 +6,11 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:35:54 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 16:32:53 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 21:47:04 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-** transfer condition when it gets bigger.
-** being called by format_parser.
-*/
 
 char	*conv_funcs(va_list ap, char *conv, int i)
 {

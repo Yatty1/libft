@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 15:26:31 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 17:25:00 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 22:04:39 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char			*adjust_precision(char *str, t_flag *flag)
 		prec = (char *)ft_memset(ft_strnew(len), '0', len);
 		tmp = ft_strjoinfree(prec, str);
 	}
-	else if (len >= 0)
+	else if (len >= 0 || flag->precision < 0)
 	{
 		flag->zero_processed = 1;
 		return (str);

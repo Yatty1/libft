@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 13:22:12 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 15:19:32 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 20:41:44 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int		ft_strwcharlen(wchar_t *str)
 
 	i = 0;
 	len = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 		len += ft_wcharlen(str[i++]);
 	return (len);
@@ -72,6 +74,8 @@ char	*ft_strwchar(wchar_t *str)
 	i = 0;
 	buf = NULL;
 	tmp = NULL;
+	if (!str)
+		return (NULL);
 	s = ft_strnew(ft_strwcharlen(str));
 	while (str[i])
 	{

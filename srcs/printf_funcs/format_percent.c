@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 12:46:43 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 23:23:55 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 22:49:21 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static char	*flag_percent(char *conv, va_list ap)
 		return (NULL);
 	check_flag(&flag, conv, ap);
 	str = ft_charstr('%');
+	flag.precision = 0;
 	str = width_prec_fill(flag, str);
 	return (str);
 }

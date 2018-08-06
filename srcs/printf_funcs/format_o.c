@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:44:27 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 14:41:22 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 22:36:56 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ static char	*flag_co(char *conv, va_list ap)
 
 	len = ft_strlen(conv) - 2;
 	check_flag(&flag, conv, ap);
-	str = ft_uitoa_base(va_arg(ap, unsigned int), 8, 0);
+	flag.octal = 1;
+	str = ft_ultoa_base(va_arg(ap, unsigned long), 8, 0);
 	if (conv[len] == '%')
 		return (str);
 	str = width_prec_fill(flag, str);
