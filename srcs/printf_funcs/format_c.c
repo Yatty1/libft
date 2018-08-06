@@ -6,11 +6,25 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 18:12:30 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 14:40:59 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 17:45:17 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	cvt_flag(char *conv, va_list ap, char **str, int len)
+{
+	char	*flag;
+
+	if (!(flag = take_flag(conv, len)))
+		return (-1);
+	if (ft_strcmp(flag, "l") == 0)
+		*str = ft_wchar(ft_strnew(1), va_arg(ap, wchar_t));
+	free(flag);
+	if (!*str)
+		return (-1);
+	return (len);
+}
 
 static void	null_helper(t_flag *flag, int *len)
 {
@@ -69,7 +83,8 @@ static char	*flag_c(char *conv, va_list ap, char *c_s, int *t_len)
 	}
 	if (is_tflag(conv[len]))
 	{
-		return (ft_strdup(""));
+		if ((len = cvt_flag(conv, ap, &str, len)) < 0)
+			return (ft_strdup(""));
 	}
 	else
 	{

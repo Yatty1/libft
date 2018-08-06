@@ -6,38 +6,24 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:41:22 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 15:30:18 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 17:42:50 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*flag_s(char *conv, va_list ap)
+static int	cvt_flag(char *conv, va_list ap, char **str, int len)
 {
-	char	*str;
-	int		len;
-	t_flag	flag;
+	char	*flag;
 
-	len = ft_strlen(conv) - 2;
-	check_flag(&flag, conv, ap);
-	if (conv[len] == '%')
-	{
-		if (!(str = va_arg(ap, char *)))
-			return (NULL);
-		return (ft_strdup(str));
-	}
-	if (is_tflag(conv[len]))
-	{
-		return (NULL);
-	}
-	else
-	{
-		if (!(str = ft_strdup(va_arg(ap, char *))))
-			return (NULL);
-	}
-	flag.str = 1;
-	str = width_prec_fill(flag, str);
-	return (str);
+	if (!(flag = take_flag(conv, len)))
+		return (-1);
+	if (ft_strcmp(flag, "l") == 0)
+		*str = ft_strwchar(va_arg(ap, wchar_t *));
+	free(flag);
+	if (!*str)
+		return (-1);
+	return (len);
 }
 
 static char	*flag_cs(char *conv, va_list ap)
@@ -56,6 +42,36 @@ static char	*flag_cs(char *conv, va_list ap)
 	str = width_prec_fill(flag, str);
 	return (str);
 }
+
+static char	*flag_s(char *conv, va_list ap)
+{
+	char	*str;
+	int		len;
+	t_flag	flag;
+
+	len = ft_strlen(conv) - 2;
+	check_flag(&flag, conv, ap);
+	if (conv[len] == '%')
+	{
+		if (!(str = va_arg(ap, char *)))
+			return (NULL);
+		return (ft_strdup(str));
+	}
+	if (is_tflag(conv[len]))
+	{
+		if ((len = cvt_flag(conv, ap, &str, len)) < 0)
+			return (NULL);
+	}
+	else
+	{
+		if (!(str = ft_strdup(va_arg(ap, char *))))
+			return (NULL);
+	}
+	flag.str = 1;
+	str = width_prec_fill(flag, str);
+	return (str);
+}
+
 
 char		*format_s(va_list ap, char *conv)
 {
