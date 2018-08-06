@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:35:54 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 22:26:46 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 16:32:53 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,6 @@ char	*check_conv(va_list ap, char *conv, char *str, int *len)
 	return (ft_strdup(""));
 }
 
-/*
-** put extra parser to extend your printf
-*/
-
 char	*convert_format(va_list ap, const char *fmt, int *len)
 {
 	char	*str;
@@ -80,7 +76,11 @@ char	*convert_format(va_list ap, const char *fmt, int *len)
 		if (!(fmt = str_parser((char *)fmt, &str)))
 			break ;
 		if (!(fmt = format_parser((char *)fmt, &str, ap, len)))
+		{
+			if (str)
+				free(str);
 			return (NULL);
+		}
 	}
 	if (!str)
 		return (NULL);
@@ -89,7 +89,7 @@ char	*convert_format(va_list ap, const char *fmt, int *len)
 
 int		ft_printf(const char *format, ...)
 {
-	va_list 	ap;
+	va_list		ap;
 	char		*str;
 	int			len;
 

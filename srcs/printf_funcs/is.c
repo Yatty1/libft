@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:50:49 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/04 23:36:37 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 14:43:35 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		is_stop(char c)
 	return (0);
 }
 
-int			is_tflag(char c)
+int		is_tflag(char c)
 {
 	if (c == 'h' || c == 'l' || c == 'j' || c == 'z')
 		return (1);
