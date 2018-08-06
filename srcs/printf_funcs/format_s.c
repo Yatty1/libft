@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 16:41:22 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 17:42:50 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/05 17:49:09 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ static char	*flag_s(char *conv, va_list ap)
 	str = width_prec_fill(flag, str);
 	return (str);
 }
-
 
 char		*format_s(va_list ap, char *conv)
 {
