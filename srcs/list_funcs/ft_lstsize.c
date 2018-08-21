@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpush.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/14 15:15:25 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/07 11:58:34 by syamada          ###   ########.fr       */
+/*   Created: 2018/08/14 07:50:59 by syamada           #+#    #+#             */
+/*   Updated: 2018/08/14 07:52:02 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstpush(t_list **alst, void *content, size_t size)
+int		ft_lstsize(t_list *lst)
 {
-	t_list	*list;
+	int		i;
 
-	if (alst == NULL)
-		return ;
-	if (*alst == NULL)
+	i = 0;
+	while (lst)
 	{
-		*alst = ft_lstnew(content, size);
-		return ;
+		i++;
+		lst = lst->next;
 	}
-	list = *alst;
-	while (list->next)
-		list = list->next;
-	list->next = ft_lstnew(content, size);
+	return (i);
 }

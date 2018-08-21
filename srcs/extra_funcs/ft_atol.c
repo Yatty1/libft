@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpush.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/14 15:15:25 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/07 11:58:34 by syamada          ###   ########.fr       */
+/*   Created: 2018/08/07 14:13:05 by syamada           #+#    #+#             */
+/*   Updated: 2018/08/07 14:14:02 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstpush(t_list **alst, void *content, size_t size)
+static int		is_space(char c)
 {
-	t_list	*list;
+	if (c == '\v' || c == '\f' || c == '\r' || c == ' '
+			|| c == '\n' || c == '\t')
+		return (1);
+	return (0);
+}
 
-	if (alst == NULL)
-		return ;
-	if (*alst == NULL)
+long			ft_atol(const char *str)
+{
+	int		sign;
+	long	result;
+
+	result = 0;
+	while (is_space(*str))
+		str++;
+	sign = 1;
+	if (*str == '+')
+		str++;
+	else if (*str == '-')
 	{
-		*alst = ft_lstnew(content, size);
-		return ;
+		sign = -1;
+		str++;
 	}
-	list = *alst;
-	while (list->next)
-		list = list->next;
-	list->next = ft_lstnew(content, size);
+	while (*str >= '0' && *str <= '9')
+		result = result * 10 + (*str++ - '0');
+	return (sign * result);
 }

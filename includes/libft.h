@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 13:46:49 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 16:14:21 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/20 12:23:04 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
+void				ft_puterr(char c);
+void				ft_putstrerr(char *str);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -87,6 +89,7 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int					ft_lstsize(t_list *lst);
 
 void				ft_printlist(t_list *list);
 char				*ft_strinit(char *str);
@@ -94,11 +97,14 @@ t_list				*ft_samplelist(size_t len);
 char				*ft_strrev(char *str);
 void				ft_lstpush(t_list **alst, void *content, size_t size);
 int					ft_wordcount(char *s, char d);
-char				*ft_strjoin_with(const char *s1, const char *s2, char c);
+char				*ft_strjoin_with(char const *s1, char const *s2, char c);
+char				*ft_strjoinfree_with(char *s1, char *s2, char c);
 char				*ft_strndup(char *str, int i, int n);
 char				*ft_charstr(char c);
 char				*ft_strappend(char *str, char c);
 char				*ft_strprepend(char *str, char c);
+char				*ft_strjoinfree(char *s1, char *s2);
+char				*ft_strlast(char *str, char c);
 
 char				*ft_ltoa(long n);
 char				*ft_lltoa(long long n);
@@ -115,5 +121,6 @@ char				*ft_ultoa_base(unsigned long num, unsigned int base,
 									int is_cap);
 char				*ft_ulltoa_base(unsigned long long num,
 									unsigned int base, int is_cap);
+long				ft_atol(const char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 18:38:56 by syamada           #+#    #+#             */
-/*   Updated: 2018/07/13 21:37:36 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/15 13:27:59 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		if (!(list->content = malloc(content_size)))
+		if (!(list->content = malloc(content_size + 1)))
 		{
 			free(list);
 			return (NULL);
 		}
-		ft_memcpy(list->content, content, content_size);
+		ft_memcpy(list->content, content, content_size + 1);
 		list->content_size = content_size;
 	}
 	list->next = NULL;

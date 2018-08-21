@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 19:36:39 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/05 17:53:18 by syamada          ###   ########.fr       */
+/*   Updated: 2018/08/07 18:06:40 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void			ft_putwchar(wchar_t c);
 int				ft_wcharlen(wchar_t c);
 int				ft_strwcharlen(wchar_t *len);
 char			*ft_strwchar(wchar_t *str);
-char			*ft_strjoinfree(char *s1, char *s2);
 char			*ft_strsubfree(char *str, int start, int len);
 char			*put_null(char *str, int *len, t_flag *flag);
 

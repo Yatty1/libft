@@ -6,7 +6,7 @@
 #    By: syamada <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 13:43:20 by syamada           #+#    #+#              #
-#    Updated: 2018/08/05 16:00:31 by syamada          ###   ########.fr        #
+#    Updated: 2018/08/20 12:21:17 by syamada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,13 +33,14 @@ LIBCS	:= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.
 ADDS	:= ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c \
 			ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_itoa.c \
 			ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putstr_fd.c \
-			ft_putendl_fd.c ft_putnbr_fd.c
+			ft_putendl_fd.c ft_putnbr_fd.c ft_putstrerr.c ft_puterr.c
 
 LISTS	:= ft_samplelist.c ft_printlist.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
-			ft_lstiter.c ft_lstmap.c ft_lstpush.c
+			ft_lstiter.c ft_lstmap.c ft_lstpush.c ft_lstsize.c
 
 EXTRAS	:= ft_strinit.c	ft_strrev.c ft_wordcount.c ft_strjoin_with.c get_next_line.c ft_strndup.c \
-	ft_charstr.c ft_strprepend.c ft_strappend.c  \
+	ft_charstr.c ft_strprepend.c ft_strappend.c ft_atol.c ft_strjoinfree.c ft_strjoinfree_with.c \
+	ft_strlast.c
 
 NTOAS	:= ft_itoa_base.c ft_ltoa_base.c ft_lltoa_base.c ft_uitoa_base.c ft_ultoa_base.c ft_ulltoa_base.c \
 			ft_ltoa.c ft_lltoa.c ft_imaxtoa.c ft_uimaxtoa_base.c ft_sizetoa_base.c
@@ -119,3 +120,7 @@ re: fclean all
 .PHONY: norm
 norm:
 	@norminette $(SRCS) $(HEADERS)
+    :q
+
+
+
