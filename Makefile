@@ -6,7 +6,7 @@
 #    By: syamada <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 13:43:20 by syamada           #+#    #+#              #
-#    Updated: 2018/08/20 12:21:17 by syamada          ###   ########.fr        #
+#    Updated: 2018/08/30 18:12:10 by syamada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ LISTS	:= ft_samplelist.c ft_printlist.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c f
 
 EXTRAS	:= ft_strinit.c	ft_strrev.c ft_wordcount.c ft_strjoin_with.c get_next_line.c ft_strndup.c \
 	ft_charstr.c ft_strprepend.c ft_strappend.c ft_atol.c ft_strjoinfree.c ft_strjoinfree_with.c \
-	ft_strlast.c
+	ft_strlast.c ft_tdstrdel.c
 
 NTOAS	:= ft_itoa_base.c ft_ltoa_base.c ft_lltoa_base.c ft_uitoa_base.c ft_ultoa_base.c ft_ulltoa_base.c \
 			ft_ltoa.c ft_lltoa.c ft_imaxtoa.c ft_uimaxtoa_base.c ft_sizetoa_base.c
@@ -120,7 +120,6 @@ re: fclean all
 .PHONY: norm
 norm:
 	@norminette $(SRCS) $(HEADERS)
-    :q
 
 
 
