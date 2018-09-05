@@ -6,7 +6,7 @@
 /*   By: syamada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 13:46:49 by syamada           #+#    #+#             */
-/*   Updated: 2018/08/30 18:11:56 by syamada          ###   ########.fr       */
+/*   Updated: 2018/09/05 12:52:31 by syamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ char				*ft_strprepend(char *str, char c);
 char				*ft_strjoinfree(char *s1, char *s2);
 char				*ft_strlast(char *str, char c);
 void				ft_tdstrdel(char ***tdstr);
+int					ft_strchr_i(char *str, char c);
 
 char				*ft_ltoa(long n);
 char				*ft_lltoa(long long n);
